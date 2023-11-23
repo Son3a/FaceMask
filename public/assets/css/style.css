@@ -1,0 +1,23 @@
+body {
+    background: url('../../uploads/face_mask.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* .camera {
+    position: absolute;
+    height: 400px;
+    width: 500px;
+    left: 50%;
+    top: 50%;
+    margin-top: -200px;
+    margin-left: -250px;
+} */
+
+#webcam-container {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+}

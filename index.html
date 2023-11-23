@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <h1>Communicating from Node.js to an Arduino</h1>
+
+    <button id="lightOn">Turn Light On</button>
+    <button id="lightOff">Turn Light Off</button>
+
+    <script>
+
+        var socket = io();
+
+        document.getElementById('lightOn').onclick = function () {
+
+            socket.emit('lights', { "status": "1" });
+
+        };
+
+        document.getElementById('lightOff').onclick = function () {
+
+            socket.emit('lights', { "status": "0" });
+
+        };
+
+    </script>
+</body>
+
+</html>
