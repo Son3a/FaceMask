@@ -1,36 +1,41 @@
-const http = require('http');
-var fs = require('fs');
-var index = fs.readFileSync('index.html');
 var serialport = require('serialport');
-var portName = 'COM6';
+var portName = 'COM11';
 
 const express = require('express')
 const app = express()
 const path = require("path")
 const server = require('http').createServer(app);
 
-// var portSerial = new serialport.SerialPort({ path: portName, baudRate: 9600 });
+// const cloudinary = require('cloudinary')
+// cloudinary.config({
+//     cloud_name: 'dnstykqpa',
+//     api_key: '592721243373484',
+//     api_secret: 'II9-bCcD8CkphOGPwwiClJLx7zQ',
+//     secure: true
+// });
+
+// var portSerial = new serialport.SerialPort({ path: portName, baudRate: 115200 });
 // portSerial.on('open', () => {
 //     console.log("on opening");
 // })
-app.use(express.static( path.join(__dirname, './public')));
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'src/views'));
 
 app.get('/', (req, res) => {
-    res.render('face_mask.ejs')
+    res.sendFile(__dirname + '/index.html');
 })
 
 var io = require('socket.io')(server);
 
-io.on("connection", function (socket) {
-    socket.on("lights", function (data) {
-        portSerial.write(data.status)
-        console.log(data);
-    });
-});
-server.listen(3000, () => console.log("listening in port 3000"));
+// io.on("connection", function (socket) {
+//     socket.on("lights", function (data) {
 
-// app.listen(3000, ()=>console.log("listening in port 3000"))
+//         if (data.result != '') {
+//             cloudinary.uploader.upload(data.result).then((result) => {
+//                 console.log(result.url);
+//                 portSerial.write(result.url)
+//             });
+//         }
+//     });
+// });
+server.listen(3000, () => console.log("listening in port 3000"));
 
 
