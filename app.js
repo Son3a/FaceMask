@@ -1,9 +1,9 @@
 var serialport = require('serialport');
 var portName = 'COM11';
 
-const express = require('express')
-const app = express()
-const path = require("path")
+const express = require('express');
+const app = express();
+const path = require('path');
 const server = require('http').createServer(app);
 
 // const cloudinary = require('cloudinary')
@@ -21,7 +21,9 @@ const server = require('http').createServer(app);
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
-})
+});
+
+app.use(express.static(__dirname + '/public'));
 
 var io = require('socket.io')(server);
 
@@ -36,6 +38,4 @@ var io = require('socket.io')(server);
 //         }
 //     });
 // });
-server.listen(3000, () => console.log("listening in port 3000"));
-
-
+server.listen(3000, () => console.log('listening in port 3000'));

@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(to right, #1100ff, #d03838);
+    -webkit-background-clip: text; /* Cho trình duyệt Safari và Chrome */
+    color: transparent;
+    background-clip: text;
+}
+
+.cover-btn {
+    text-align: center;
+}
+
+.btn-start {
+    border: none;
+    padding: 8px 32px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 3px solid #000;
+    margin-bottom: 16px;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-start:hover {
+    cursor: pointer;
+    padding: 8px 36px;
+    opacity: 0.6;
+}
+
+.loading {
+    display: none;
+}
+
+.loading.active {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading .icon-loading {
+    font-size: 64px;
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.cover-content {
+    display: none;
+}
+
+.cover-content.active {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cover-content #webcam-container canvas {
+    border-radius: 8px;
+}
+
+.cover-content #label-container {
+    font-weight: bold;
+    font-size: 24px;
+    border: 3px solid pink;
+    border-radius: 8px;
+    padding: 16px;
+}
